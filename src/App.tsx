@@ -11,13 +11,15 @@ function App() {
     "London",
     "Paris",
   ];
+
+  const handleSelectitem = (item: string) => console.log(item);
   return (
     <div>
       <Message />
       <ListGroup
         items={items}
         heading="Cities"
-        onSelectItem={(item) => console.log(item)}
+        onSelectItem={handleSelectitem}
       />
     </div>
   );
