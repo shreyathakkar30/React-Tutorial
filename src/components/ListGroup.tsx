@@ -3,16 +3,12 @@
 import { useState } from "react";
 
 //import { MouseEvent } from "react";
-function ListGroup() {
-  const items = [
-    "New York",
-    "San Francisco",
-    "Los Angeles",
-    "Seattle",
-    "Chicago",
-    "London",
-    "Paris",
-  ];
+interface ListGroupProps {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void;
+}
+function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
   //Event handler
   //const handleClick = (event: MouseEvent<HTMLLIElement>) => console.log(event);
   //items = [];//Uncomment this line to see the message when there are no items in the list
@@ -26,7 +22,7 @@ function ListGroup() {
   if (items.length === 0) return <p>There are no items in the list</p>;
   return (
     <>
-      <h1>List Group</h1>
+      <h1>{heading}</h1>
       <ul className="list-group">
         {items.map((item, index) => (
           <li
